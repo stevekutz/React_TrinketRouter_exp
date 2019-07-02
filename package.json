@@ -1,36 +1,21 @@
 {
-  "name": "react_trinketrouter_exp",
+  "name": "React_TrinketRouter_exp",
   "version": "1.0.0",
-  "description": "Router experiments!",
   "main": "index.js",
-  "scripts": {
-    "test": "npm start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stevekutz/React_TrinketRouter_exp.git"
-  },
-  "author": "Steve Kutz",
+  "repository": "https://github.com/stevekutz/React_TrinketRouter_exp.git",
+  "author": "stevekutz <stkutz@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/stevekutz/React_TrinketRouter_exp/issues"
-  },
-  "homepage": "https://github.com/stevekutz/React_TrinketRouter_exp#readme",
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-session-knex": "^1.4.0",
     "cors": "^2.8.5",
     "crypto-extra": "^0.4.0",
-    "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.16.2",
     "helmet": "^3.18.0",
-    "jsonwebtoken": "^8.5.1",
     "knex": "^0.18.1",
     "knex-cleaner": "^1.1.4",
-    "npm": "^6.9.2",
+    "nodemon": "^1.19.1",
     "sqlite3": "^4.0.9"
   }
 }
