@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import { Route } from "react-router-dom"; // Router === BrowserRouter, its just an alias
+import { Route, Link } from "react-router-dom"; // Router === BrowserRouter, its just an alias
 // BrowserRouter is a HOC, a components that takes in another component
 
 import Home from "./components/Home";
@@ -30,9 +30,14 @@ class App extends React.Component {
         <nav>
           <h1 className="store-header">Jasons's Trinkets</h1>
           <div className="nav-links" />
+          <Link to = '/'>Home Route</Link>
+          <Link to = '/trinkets'>Trinkets </Link>
+          {/* Do ABOVE instead of below*/}
           {/* Using a tags uses ServerSideRouting, causes refresh!*/}
+          {/*}  
           <a href="/">Home</a>
           <a href="trinkets">Trinkets</a>
+          */}
         </nav>
 
         {/* Use <Route> to attach URL path to a specific component  */}
