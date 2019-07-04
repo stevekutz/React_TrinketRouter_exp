@@ -1,44 +1,56 @@
-html,
-body,
-#root {
-  width: 100%;
-  height: 100%;
+html{
+  border: 3px solid black;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/*html,
+body, */
+#root {
+  border: 3px solid pink;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0;
+  
 }
 
 .App {
+  border: 5px solid yellowgreen;
   font-family: sans-serif;
-  text-align: center;
-  height: 100%;
-  width: 100%;
+  text-align: center; 
 }
 
 nav {
   border: 4px solid blueviolet;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
-   align-content: center;
-  padding: 0 16px;
+  align-content: center;
+  padding: 0 2.5%;
   border-bottom: 1px solid #efefef;
-  margin-bottom: 32px;
-  width: 100%;
+  /* margin: 32px auto; */
+  /* width: 100%;   CAUSES Horz bar !!! */ 
 }
 
 .nav-links {
   border: 1px solid green;
   display: flex;
-  margin-right: 5%;
-  justify-content: center;
+  justify-content: space-between;
+  
+/*  margin-right: 5%; */
+
 }
 
 .nav-links a {
   text-decoration: none;
   color: #1c5d76;
   font-weight: bold;
-  padding: 0 10%;
+ /* padding:  0 15%; */
+ /* padding: 0 10%; */
  /* margin-right: 8px; */
 }
 
@@ -53,7 +65,7 @@ nav {
 .store-header {
   border: 1px solid  hotpink;
   color: #1c5d76;
-  margin-left: 5%;
+  
 }
 
 .home-wrapper {
