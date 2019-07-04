@@ -77,12 +77,14 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-decoration: none;
 }
 
 .item-card {
   width: 250px;
   margin: 0 10px 32px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .item-card p {
