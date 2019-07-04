@@ -1,33 +1,26 @@
-html{
+html,
+body,
+#root{
   border: 3px solid black;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-/*html,
-body, */
-#root {
-  border: 3px solid pink;
   margin: 0 auto;
-  max-width: 100%;
   padding: 0;
-  
+  /*height: 100%; */
+  width: 100%;
+  font-family: sans-serif;
+  text-align: center; 
 }
 
 .App {
   border: 5px solid yellowgreen;
-  font-family: sans-serif;
-  text-align: center; 
+
 }
 
 nav {
   border: 4px solid blueviolet;
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   align-items: center;
   align-content: center;
   padding: 0 2.5%;
@@ -40,18 +33,13 @@ nav {
   border: 1px solid green;
   display: flex;
   justify-content: space-between;
-  
-/*  margin-right: 5%; */
-
 }
 
 .nav-links a {
   text-decoration: none;
   color: #1c5d76;
   font-weight: bold;
- /* padding:  0 15%; */
- /* padding: 0 10%; */
- /* margin-right: 8px; */
+  padding: 5px;
 }
 
 .nav-links a:last-of-type {
@@ -93,10 +81,12 @@ nav {
 }
 
 .item-card {
-  width: 250px;
-  margin: 0 10px 32px;
+  border: 5px solid red;
+  max-width: 500px;
+  margin: 5px 10px 32px;
   cursor: pointer;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .item-card p {
@@ -112,7 +102,7 @@ nav {
 
 .item-wrapper {
   border: 5px solid blue;
-  max-width: 450px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -122,6 +112,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  /*width: 100%; */
 }
 
 .item-header h2,
@@ -161,7 +152,7 @@ nav {
 
 .image-wrapper {
   border: 1px solid purple;
-  max-width: 450px;
+  max-width: 800px;
   display: flex;
   justify-content: center;
   align-content: center;
