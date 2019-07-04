@@ -1,4 +1,4 @@
-# Authentication using JSON Web Tokens (JWTs)
+# Router Trinket experiment
 ## Backend SETUP
 
 #### SETUP package.json using npm
