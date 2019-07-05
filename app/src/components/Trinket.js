@@ -7,6 +7,8 @@ export default function(props) {
   const item = items.find(index => String(index.id) === props.match.params.id);
   // <h3>Trinket {props.match.params.id} </h3>
   console.log("item is >> ", item);
+  console.log('props passed to Trinket !!>> ', props);
+  
   return (
     /* using dynamic params */
     <div className="item-wrapper">
@@ -22,8 +24,10 @@ export default function(props) {
           </div>
        
       </div>
-      
+
       <p className="item-description">{item.description}</p>
+      <button className = 'shipping-info'> Shipping Info</button>
+
     </div>
   );
 }

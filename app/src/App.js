@@ -5,6 +5,7 @@ import { Route, Link } from "react-router-dom"; // Router === BrowserRouter, its
 import Home from "./components/Home";
 import Trinkets from "./components/Trinkets";
 import Trinket from "./components/Trinket";
+import TrinketClassComp from './components/TrinketClassComp';
 
 
 import './App.css';
@@ -40,8 +41,9 @@ class App extends React.Component {
         <Route exact path="/" component={Home} />
         {/*<Route path="/" exact component={Home} /> SAME AS ABOVE*/}
         <Route path="/trinkets" exact component={Trinkets} />
-        <Route path="/trinket/:id" exact component={Trinket} />
-      </div>
+      {/*  <Route path="/trinket/:id" exact component={Trinket} />  */}
+        <Route path="/trinket/:id" exact component={TrinketClassComp} />
+        </div>
     );
   }
 }

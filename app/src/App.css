@@ -33,6 +33,8 @@ nav {
   border: 1px solid green;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 
 .nav-links a {
@@ -53,7 +55,6 @@ nav {
 .store-header {
   border: 1px solid  hotpink;
   color: #1c5d76;
-  
 }
 
 .home-wrapper {
@@ -167,7 +168,6 @@ nav {
 
 .item-title-wrapper {
   border: 1px solid pink;
-/*  width: 50%;   */
   display: flex;
   flex-direction: column;
   flex-flow: column nowrap;
@@ -176,9 +176,20 @@ nav {
 
 .item-description {
   max-width: 720px;
-  margin: 32px auto;
+  margin: 2% auto;
   padding: 15px;
 }
+
+.shipping-info{
+  margin: 1% auto;
+  outline-style: none;
+  background-color: dodgerblue;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+
 
 /* material design button */
 .md-button {
