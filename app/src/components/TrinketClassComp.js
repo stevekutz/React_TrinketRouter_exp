@@ -3,12 +3,15 @@ import items from '../data';
 
 
 class TrinketClassComp extends React.Component {
+// class components pass props by default
+/*
     constructor(props) {
         super(props);
         this.state = {
             showInfo: false,
         }
     }
+*/
 
     render()    
     {
@@ -19,18 +22,18 @@ class TrinketClassComp extends React.Component {
             <div className = "item-wrapper"> 
                 <div className = "item-header">
                             
-                    <div>
+                    <div className = "item-title-wrapper">
                         <h2>{item.name}</h2>
                         <h4>${item.price}</h4>
                         
                     </div>  
                     
                     <div className = 'image-wrapper'>
-                        <img className = 'iamgeItem' src = {item.imageUrl} alt = {item.name}/>
+                        <img className = 'imageItem' src = {item.imageUrl} alt = {item.name}/>
                     </div>
                 </div>
                         
-                <p className = 'item-desription'>{item.description}</p>
+                <p className = 'item-description'>{item.description}</p>
                 <button className = 'shipping-info'> Shipping Info</button>
             </div>
         )
