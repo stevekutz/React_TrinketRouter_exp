@@ -23,6 +23,7 @@ class TrinketClassComp extends React.Component {
                 <div className = "item-header">
                             
                     <div className = "item-title-wrapper">
+                        <h3> params id is {this.props.match.params.id}</h3>
                         <h2>{item.name}</h2>
                         <h4>${item.price}</h4>
                         

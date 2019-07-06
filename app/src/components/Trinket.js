@@ -15,6 +15,7 @@ export default function(props) {
       <div className="item-header">
         
           <div className="item-title-wrapper">
+            <h3> params id is {props.match.params.id}</h3>
             <h2>{item.name}</h2>
             <h4>${item.price}</h4>
           </div>
