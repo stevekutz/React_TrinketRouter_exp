@@ -1,10 +1,10 @@
 import React from "react";
-import items from "../data";
+// import items from "../data";
 
 export default function(props) {
   console.log("Inside Trinket ", props);
 
-  const item = items.find(index => String(index.id) === props.match.params.id);
+  const item = props.items.find(index => String(index.id) === props.match.params.id);
   // <h3>Trinket {props.match.params.id} </h3>
   console.log("item is >> ", item);
   console.log('props passed to Trinket !!>> ', props);
