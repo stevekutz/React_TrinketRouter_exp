@@ -1,4 +1,8 @@
 import React from 'react';
+import {Route, Link} from 'react-router-dom';
+import Description from './TrinketDescription';
+import Shipping from './TrinketShipping';
+
 // import items from '../data';
 
 
@@ -17,6 +21,9 @@ class TrinketClassComp extends React.Component {
     {
         console.log('>>> Class Component props are >> ', this.props);
         const item = this.props.items.find(index => String(index.id) === this.props.match.params.id);
+          // we need to pass in id to nested route for Description & Shipping
+          // const id = this.props.match.params.id;  // preferred as we are generating id from current page URL
+          const id = item.id;  // 
 
         return (
             
@@ -34,9 +41,23 @@ class TrinketClassComp extends React.Component {
                         <img className = 'imageItem' src = {item.imageUrl} alt = {item.name}/>
                     </div>
                 </div>
-                        
-                <p className = 'item-description'>{item.description}</p>
-                <button className = 'shipping-info'> Shipping Info</button>
+
+                <nav>
+                    <Link to = {`/trinket/${id}`}>Description CC</Link>
+                    <Link to = {`/trinket/${id}/shipping`} >Shipping CC</Link>
+                </nav>
+
+
+
+                {/* 
+                    This will NOT allow us to pass in item as props into Description
+                <Route path = 'trinket/:id' component = {Description}/>  
+                        !!!  we MUST use render props !!! */}   
+
+                <Route path = '/trinket/:id' exact render = {() => <Description description = {item.description}/>} />
+                <Route path = '/trinket/:id/shipping' exact render = { () => <Shipping  shipping = {item.shipping}/> } />
+
+
             </div>
                   
         )

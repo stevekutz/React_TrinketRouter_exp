@@ -57,7 +57,9 @@ class App extends React.Component {
         }} />  
         */}    {/* implicit return used here */}
                 {/* MUST remove exact in order to implement nested routes */}
-        <Route path = '/trinket/:id' render  = { (props) => <Trinket {...props} items = {data}/>} />
+
+
+        <Route path = "/trinket/:id" render = { (props) => <TrinketClassComp {...props} items = {data}/> } />
 
       {/* <Route path="/trinket/:id" exact component={Trinket} /> */}   
       {/*  <Route path="/trinket/:id" exact component={TrinketClassComp} />   */}
@@ -67,3 +69,4 @@ class App extends React.Component {
 }
 
 export default App;
+//  <Route path = "/trinket/:id" render  = { (props) => <Trinket {...props} items = {data}/>} />

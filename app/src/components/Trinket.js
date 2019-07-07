@@ -10,8 +10,8 @@ export default function(props) {
   const item = props.items.find(index => String(index.id) === props.match.params.id);
 
   // we need to pass in id to nested route for Description & Shipping
-  const id = props.match.params.id;  // preferred as we are generating id from current page URL
-  // const id = item.id;  // 
+  // const id = props.match.params.id;  // preferred as we are generating id from current page URL
+   const id = item.id;  // 
 
 
   //console.log("item is >> ", item);
