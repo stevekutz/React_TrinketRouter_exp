@@ -43,16 +43,20 @@ class App extends React.Component {
         {/* we replace this apporach with render props*/}
         {/*<Route path="/trinkets" exact component={Trinkets} /> */}
         
+
+        {/* with render props, Route is a HOC with render props and/or child Component */}
         <Route path = '/' exact render = { (props) => {
             return <Home {...props}  items = {data}/>
         }}/>
-        <Route path = '/trinkets' exact render = { (props) => {
+        <Route path = '/trinkets'exact render = { (props) => {
           return <Trinkets {...props} items = {data}/>
         }}/>
+        {/*
         <Route path = '/trinket/:id' exact render = { (props) => {
           return <Trinket {...props} items = {data}/>
         }} />  
-
+        */}    {/* implicit return used here */}
+        <Route path = '/trinket/:id' exact render  = { (props) => <Trinket {...props} items = {data}/>} />
 
       {/* <Route path="/trinket/:id" exact component={Trinket} /> */}   
       {/*  <Route path="/trinket/:id" exact component={TrinketClassComp} />   */}
