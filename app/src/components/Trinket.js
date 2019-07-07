@@ -1,13 +1,21 @@
 import React from "react";
 // import items from "../data";
+import {Route, Link} from 'react-router-dom';
+import Description from './TrinketDescription';
+import Shipping from './TrinketShipping';
 
 export default function(props) {
   console.log("Inside Trinket ", props);
 
   const item = props.items.find(index => String(index.id) === props.match.params.id);
-  // <h3>Trinket {props.match.params.id} </h3>
-  console.log("item is >> ", item);
-  console.log('props passed to Trinket !!>> ', props);
+
+  // we need to pass in id to nested route for Description & Shipping
+  const id = props.match.params.id;  // preferred as we are generating id from current page URL
+  // const id = item.id;  // 
+
+
+  //console.log("item is >> ", item);
+  //console.log('props passed to Trinket !!>> ', props);
   
   return (
     /* using dynamic params */
@@ -26,9 +34,22 @@ export default function(props) {
        
       </div>
 
-      <p className="item-description">{item.description}</p>
-      <button className = 'shipping-info'> Shipping Info</button>
+     <nav>
+      <Link to = {`/trinket/${id}`}  > Description </Link>
+      <Link to = {`/trinket/${id}/shipping`}> Shipping </Link>
+     </nav>
+
+
+      {/* 
+            This will NOT allow us to pass in item as props into Description
+      <Route path = 'trinket/:id' component = {Description}/>  
+            !!!  we MUST use render props !!! */}
+    <Route path = '/trinket/:id' exact render = { () => <Description description = {item.description}  /> }/>  
+    <Route path = "/trinket/:id/shipping" exact render = { () => <Shipping  shipping = {item.shipping}/> }/>        
+      
+      
 
     </div>
   );
 }
+  
