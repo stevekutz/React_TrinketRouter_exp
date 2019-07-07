@@ -37,12 +37,25 @@ class App extends React.Component {
         </nav>
 
         {/* Use <Route> to attach URL path to a specific component  */}
-
+        {/* *we originally used the component prop to define what component to render/}
         <Route exact path="/" component={Home} />
         {/*<Route path="/" exact component={Home} /> SAME AS ABOVE*/}
-        <Route path="/trinkets" exact component={Trinkets} />
-      {/*  <Route path="/trinket/:id" exact component={Trinket} />  */}
-        <Route path="/trinket/:id" exact component={TrinketClassComp} />
+        {/* we replace this apporach with render props*/}
+        {/*<Route path="/trinkets" exact component={Trinkets} /> */}
+        
+        <Route path = '/' exact render = { (props) => {
+            return <Home {...props}  items = {data}/>
+        }}/>
+        <Route path = '/trinkets' exact render = { (props) => {
+          return <Trinkets {...props} items = {data}/>
+        }}/>
+        <Route path = '/trinket/:id' exact render = { (props) => {
+          return <Trinket {...props} items = {data}/>
+        }} />  
+
+
+      {/* <Route path="/trinket/:id" exact component={Trinket} /> */}   
+      {/*  <Route path="/trinket/:id" exact component={TrinketClassComp} />   */}
         </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import items from '../data';
+// import items from '../data';
 
 
 class TrinketClassComp extends React.Component {
@@ -16,9 +16,10 @@ class TrinketClassComp extends React.Component {
     render()    
     {
         console.log('>>> Class Component props are >> ', this.props);
-        const item = items.find(index => String(index.id) === this.props.match.params.id);
+        const item = this.props.items.find(index => String(index.id) === this.props.match.params.id);
 
         return (
+            
             <div className = "item-wrapper"> 
                 <div className = "item-header">
                             
@@ -37,6 +38,7 @@ class TrinketClassComp extends React.Component {
                 <p className = 'item-description'>{item.description}</p>
                 <button className = 'shipping-info'> Shipping Info</button>
             </div>
+                  
         )
     }
 }
