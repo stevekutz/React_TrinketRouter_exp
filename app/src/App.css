@@ -139,7 +139,8 @@ nav {
 }
 
 .item-sub-nav a.active {
-  color: #1c5d76;
+  /* color: #1c5d76; */
+  color: hotpink;
   font-weight: bold;
 }
 
@@ -348,3 +349,22 @@ input {
 input:focus + .baseline:before {
   right: 0;
 }
+
+.trinket-nav a {
+  color:green;
+  text-decoration: none; 
+  background: lightgrey; 
+}
+
+
+.trinket-nav a.linkee1{
+color: hotpink;
+text-decoration: none;
+background: darkslategrey;
+}
+
+.trinket-nav a.linkee2{
+  color:deepskyblue;
+  text-decoration: none;
+  background: darkslategrey;
+  }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 import Description from './TrinketDescription';
 import Shipping from './TrinketShipping';
 
@@ -42,9 +42,9 @@ class TrinketClassComp extends React.Component {
                     </div>
                 </div>
 
-                <nav>
-                    <Link to = {`/trinket/${id}`}>Description CC</Link>
-                    <Link to = {`/trinket/${id}/shipping`} >Shipping CC</Link>
+                <nav className = 'trinket-nav'>
+                    <NavLink activeClassName = "linkee1"  exact to = {`/trinket/${id}`}>Description CC</NavLink>
+                    <NavLink activeClassName = "linkee2"  exact to = {`/trinket/${id}/shipping`} >Shipping CC</NavLink>
                 </nav>
 
 
