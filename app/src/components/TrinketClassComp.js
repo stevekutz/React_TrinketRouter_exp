@@ -26,10 +26,7 @@ class TrinketClassComp extends React.Component {
           // const id = this.props.match.params.id;  // preferred as we are generating id from current page URL
          
           if(!item) {
-            // return  <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
-            setTimeout( () => {
-                 return <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
-            }, 6000  );    
+            return <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
           } 
          
          
