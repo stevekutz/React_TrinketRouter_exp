@@ -1,17 +1,26 @@
 import React from "react";
 // import items from "../data";
-import {Route, Link} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 import Description from './TrinketDescription';
 import Shipping from './TrinketShipping';
+import Loader from 'react-loader-spinner';
 
 export default function(props) {
   console.log("Inside Trinket ", props);
 
   const item = props.items.find(index => String(index.id) === props.match.params.id);
 
+  if(!item) {
+    return <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+  }
+
+  const id = item.id;  // 
+
+
+
   // we need to pass in id to nested route for Description & Shipping
   // const id = props.match.params.id;  // preferred as we are generating id from current page URL
-   const id = item.id;  // 
+   
 
 
   //console.log("item is >> ", item);
@@ -34,18 +43,18 @@ export default function(props) {
        
       </div>
 
-     <nav>
-      <Link to = {`/trinket/${id}`}  > Description </Link>
-      <Link to = {`/trinket/${id}/shipping`}> Shipping </Link>
-     </nav>
+      <nav className = 'trinket-nav'>
+        <NavLink activeClassName = "linkee1"  exact to = {props.match.url}>Description FC</NavLink>
+        <NavLink activeClassName = "linkee2"  exact to = {`${props.match.url}/shipping`} >Shipping FC</NavLink>
+      </nav>
 
 
       {/* 
             This will NOT allow us to pass in item as props into Description
       <Route path = 'trinket/:id' component = {Description}/>  
             !!!  we MUST use render props !!! */}
-    <Route path = '/trinket/:id' exact render = { () => <Description description = {item.description}  /> }/>  
-    <Route path = "/trinket/:id/shipping" exact render = { () => <Shipping  shipping = {item.shipping}/> }/>        
+    <Route path = {props.match.path} exact render = { () => <Description description = {item.description}  /> }/>  
+    <Route path = {`${props.match.path}/shipping`} exact render = { () => <Shipping  shipping = {item.shipping}/> }/>        
       
       
 
@@ -53,3 +62,8 @@ export default function(props) {
   );
 }
   
+// <NavLink activeClassName = "linkee1"  exact to = {`/trinket/${id}`}>Description FC</NavLink>
+// <NavLink activeClassName = "linkee2"  exact to = {`/trinket/${id}/shipping`} >Shipping FC</NavLink>
+
+// <Route path = '/trinket/:id' exact render = { () => <Description description = {item.description}  /> }/>  
+// <Route path = "/trinket/:id/shipping" exact render = { () => <Shipping  shipping = {item.shipping}/> }/>     

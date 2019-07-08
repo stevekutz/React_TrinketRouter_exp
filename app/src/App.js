@@ -13,12 +13,22 @@ import data from './data';
 
 class App extends React.Component {
   // add constructor and CDM
+  
+  /*
   constructor() {
     super();
     this.state = {
       items: []
     };
   }
+  */
+
+  // when using create-react-app, we can set state this way
+  state = {
+    items: [],
+  }
+
+
 
   componentDidMount() {
     this.setState({ items: data });
@@ -26,6 +36,8 @@ class App extends React.Component {
 
   render() {
     console.log("Rendering App");
+
+    const {items} = this.state;
     return (
       <div className="App">
         <nav>
@@ -46,14 +58,14 @@ class App extends React.Component {
 
         {/* with render props, Route is a HOC with render props and/or child Component */}
         <Route path = '/' exact render = { (props) => {
-            return <Home {...props}  items = {data}/>
+            return <Home {...props}  items = {items}/>
         }}/>
         <Route path = '/trinkets'exact render = { (props) => {
-          return <Trinkets {...props} items = {data}/>
+          return <Trinkets {...props} items = {items}/>
         }}/>
         {/*
         <Route path = '/trinket/:id' exact render = { (props) => {
-          return <Trinket {...props} items = {data}/>
+          return <Trinket {...props} items = {items}/>
         }} />  
         */}    {/* implicit return used here */}
                 {/* MUST remove exact in order to implement nested routes */}
@@ -69,4 +81,8 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+
 //  <Route path = "/trinket/:id" render  = { (props) => <Trinket {...props} items = {data}/>} />
+//   <Route path = "/trinket/:id" render = { (props) => <TrinketClassComp {...props} items = {data}/> } />

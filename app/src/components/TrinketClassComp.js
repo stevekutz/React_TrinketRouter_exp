@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, NavLink} from 'react-router-dom';
 import Description from './TrinketDescription';
 import Shipping from './TrinketShipping';
+import Loader from 'react-loader-spinner';
 
 // import items from '../data';
 
@@ -23,7 +24,16 @@ class TrinketClassComp extends React.Component {
         const item = this.props.items.find(index => String(index.id) === this.props.match.params.id);
           // we need to pass in id to nested route for Description & Shipping
           // const id = this.props.match.params.id;  // preferred as we are generating id from current page URL
-          const id = item.id;  // 
+         
+          if(!item) {
+            // return  <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+            setTimeout( () => {
+                 return <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+            }, 6000  );    
+          } 
+         
+         
+        const id = item.id;  // 
 
         return (
             
@@ -43,19 +53,20 @@ class TrinketClassComp extends React.Component {
                 </div>
 
                 <nav className = 'trinket-nav'>
-                    <NavLink activeClassName = "linkee1"  exact to = {`/trinket/${id}`}>Description CC</NavLink>
-                    <NavLink activeClassName = "linkee2"  exact to = {`/trinket/${id}/shipping`} >Shipping CC</NavLink>
+                <NavLink activeClassName = "linkee1"  exact to = {this.props.match.url}>Description CC</NavLink>
+                <NavLink activeClassName = "linkee2"  exact to = {`${this.props.match.url}/shipping`} >Shipping CC</NavLink>
                 </nav>
 
 
 
                 {/* 
                     This will NOT allow us to pass in item as props into Description
-                <Route path = 'trinket/:id' component = {Description}/>  
+                <Route path = 'trinket/:id' component = {Description}/> 
                         !!!  we MUST use render props !!! */}   
 
-                <Route path = '/trinket/:id' exact render = {() => <Description description = {item.description}/>} />
-                <Route path = '/trinket/:id/shipping' exact render = { () => <Shipping  shipping = {item.shipping}/> } />
+                {/* this uses path from the parent */}        
+                <Route path = {this.props.match.path} exact render = {() => <Description description = {item.description}/>} />
+                <Route path  = {`${this.props.match.path}/shipping`} exact render = { () => <Shipping  shipping = {item.shipping}/> } />
 
 
             </div>
@@ -65,3 +76,13 @@ class TrinketClassComp extends React.Component {
 }
 
 export default TrinketClassComp;
+
+//  <NavLink activeClassName = "linkee1"  exact to = {`/trinket/${id}`}>Description CC</NavLink>
+//  <NavLink activeClassName = "linkee2"  exact to = {`/trinket/${id}/shipping`} >Shipping CC</NavLink>
+
+//   <Route path = {this.props.match.path} exact render = {() => <Description description = {item.description}/>} />
+//   <Route path  = {`${this.props.match.path}/shipping`} exact render = { () => <Shipping  shipping = {item.shipping}/> } />
+
+
+// <Route path = '/trinket/:id' exact render = {() => <Description description = {item.description}/>} />
+// <Route path = '/trinket/:id/shipping' exact render = { () => <Shipping  shipping = {item.shipping}/> } />
